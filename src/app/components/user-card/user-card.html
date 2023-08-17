@@ -1,0 +1,37 @@
+<div class="card">
+  <img
+    class="card-img-top"
+    [src]="user.picture"
+    [attr.alt]="user.name">
+
+  <div class="card-body">
+    <h5 class="card-title">{{user.name}}</h5>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Gender: {{user.gender}}</li>
+    <li class="list-group-item">Email: {{user.email}}</li>
+    <li class="list-group-item">Location: {{user.city}}. {{user.country}}</li>
+  </ul>
+
+  <div class="card-body">
+    <p class="card-text">
+      <ng-container *ngIf="wmoDescription">
+        {{wmoDescription.description}}
+
+        <img
+          [src]="wmoDescription.image"
+          [attr.alt]="wmoDescription.description">
+      </ng-container>
+    </p>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item list-group-item-dark">Temperature</li>
+    <li class="list-group-item">Current: {{forecast.temperature}}</li>
+    <li class="list-group-item">Lowest: {{lowestTemperature}}</li>
+    <li class="list-group-item">Highest: {{highestTemperature}}</li>
+  </ul>
+
+  <ng-content></ng-content>
+</div>
